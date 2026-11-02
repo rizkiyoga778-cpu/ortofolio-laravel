@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: 'Poppins', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --color-brand: #2563eb;
+  --color-brand-light: #60a5fa;
+  --color-navy: #0f172a;
+  --color-navy-soft: #162036;
+  --color-navy-card: #1b2740;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+  body { @apply bg-white font-body leading-relaxed text-navy dark:bg-navy dark:text-slate-100; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto max-w-5xl px-5; }
+  .section-title { @apply mb-3 font-heading text-3xl font-semibold; }
+  .section-sub { @apply mb-10 max-w-xl text-slate-600 dark:text-slate-300; }
+  .nav-link { @apply py-2 font-medium text-slate-600 hover:text-brand dark:text-slate-300 dark:hover:text-brand-light; }
+  .card { @apply rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-navy-card; }
+  .btn { @apply inline-flex items-center gap-2 rounded-full border-2 border-brand px-5 py-3 font-semibold transition hover:-translate-y-0.5; }
+  .btn-primary { @apply bg-brand text-white; }
+  .btn-ghost { @apply text-brand dark:border-brand-light dark:text-brand-light; }
+  .icon-btn { @apply grid size-10 place-items-center rounded-full border border-slate-200 bg-white hover:border-brand dark:border-slate-700 dark:bg-navy-card; }
+  .ico { @apply size-5 fill-none stroke-current stroke-2; stroke-linecap: round; stroke-linejoin: round; }
+  .badge { @apply rounded-full border border-slate-200 bg-slate-100 px-3.5 py-1.5 text-sm dark:border-slate-600 dark:bg-navy; }
+  .filter { @apply rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium dark:border-slate-600 dark:bg-navy-card aria-pressed:border-brand aria-pressed:bg-brand aria-pressed:text-white dark:aria-pressed:border-brand dark:aria-pressed:bg-brand; }
+  .field { @apply mb-4 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-3 dark:border-slate-600 dark:bg-navy; }
+}
